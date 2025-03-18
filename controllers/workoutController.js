@@ -12,14 +12,14 @@ export const getAllWorkouts = async (req, res) => {
 export const getWorkout = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'Geen geldige workout ID' });
+    return res.status(404).json({ error: 'Geen geldige workout ID' });
     }
     const workout = await Workout.findById(id);
     if (!workout) {
-        return res.status(404).json({ error: 'Workout niet gevonden' });
+    return res.status(404).json({ error: 'Workout niet gevonden' });
     }
     res.status(200).json(workout);
-};
+    };
 
 // Maak een nieuwe workout aan
 export const createWorkout = async (req, res) => {
